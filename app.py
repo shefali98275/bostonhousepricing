@@ -6,8 +6,8 @@ import json
 
 app = Flask(__name__)
 ## load the model
-reg_model = pickle.load(open(r"D:/STRATESPHERE/END TO END PROJECT/regression.pkl","rb"))
-scaler = pickle.load(open(r"D:/end-to-end-project\bostonhousepricing\scalar.pkl","rb"))
+reg_model = pickle.load(open(r"regression.pkl","rb"))
+scaler = pickle.load(open(r"scalar.pkl","rb"))
 
 @app.route('/')
 def home():
@@ -31,5 +31,4 @@ def predict():
     output=reg_model.predict(final_input)[0]
     return render_template("home.html",prediction_text="The House price prediction is {}".format(output))
 
-if __name__ == "__main__":
-    app.run(debug=True)
+
