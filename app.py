@@ -21,7 +21,7 @@ def predict_api():
     new_data = scaler.transform(np.array(list(data.values())).reshape(1,-1))
     output = reg_model.predict(new_data)
     print(output)
-    return jsonify(str(output[0]))
+    return jsonify(str(output[0])+" this is our result")
 
 @app.route('/predict',methods=['POST'])
 def predict():
