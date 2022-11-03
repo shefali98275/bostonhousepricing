@@ -21,7 +21,7 @@ def predict_api():
     new_data = scaler.transform(np.array(list(data.values())).reshape(1,-1))
     output = reg_model.predict(new_data)
     print(output)
-    return jsonify(str(output[0])+" this is our result")
+    return jsonify(str(output[0]))
 
 @app.route('/predict',methods=['POST'])
 def predict():
@@ -29,7 +29,7 @@ def predict():
     final_input=scaler.transform(np.array(data).reshape(1,-1))
     print(final_input)
     output=reg_model.predict(final_input)[0]
-    return render_template("home.html",prediction_text="The House price prediction is {}".format(output))
+    return render_template("home.html",prediction_text="The house price prediction is {}".format(output))
 
 
 if __name__ == "__main__":
